@@ -9,13 +9,16 @@
  * All rights reserved.
  */
 
-package es.tid.cosmos.api.profile
+package es.tid.cosmos.platform.ial
 
 /**
- * Represents a new user registration.
- *
- * @param handle    Handle name to be used as login on clusters
- * @param publicKey Initial public key
- * @param email     User email
+ * This trait is aimed to implement a cake pattern to declare an artifact that requires an
+ * infrastructure provider as one of its components.
  */
-case class Registration(handle: String, publicKey: String, email: String)
+trait InfrastructureProviderComponent {
+
+  /**
+   * Obtain the infrastructure provider instance for this component.
+   */
+  def infrastructureProvider: InfrastructureProvider
+}

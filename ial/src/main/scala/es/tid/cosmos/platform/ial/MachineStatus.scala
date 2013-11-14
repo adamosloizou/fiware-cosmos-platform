@@ -9,13 +9,16 @@
  * All rights reserved.
  */
 
-package es.tid.cosmos.api.profile
+package es.tid.cosmos.platform.ial
 
 /**
- * Represents a new user registration.
- *
- * @param handle    Handle name to be used as login on clusters
- * @param publicKey Initial public key
- * @param email     User email
+ * An enumeration of the available machine status.
  */
-case class Registration(handle: String, publicKey: String, email: String)
+object MachineStatus extends Enumeration {
+
+  type MachineStatus = Value
+
+  /* Uses indices for backwards compability while serializing. */
+  val Provisioning = Value(1, "provisioning")
+  val Running = Value(2, "running")
+}
